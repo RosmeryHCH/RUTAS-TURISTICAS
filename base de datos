@@ -1,10 +1,8 @@
--- Crear la base de datos
-CREATE DATABASE VentasBoletos;
 
--- Usar la base de datos recién creada
+CREATE DATABASE VentasBoletos;
 USE VentasBoletos;
 
--- Crear la tabla de Clientes
+-- tabla de Clientes
 CREATE TABLE Clientes (
     ID_Cliente INT PRIMARY KEY IDENTITY,
     Nombre NVARCHAR(100),
