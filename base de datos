@@ -1,0 +1,33 @@
+-- Crear la base de datos
+CREATE DATABASE VentasBoletos;
+
+-- Usar la base de datos recién creada
+USE VentasBoletos;
+
+-- Crear la tabla de Clientes
+CREATE TABLE Clientes (
+    ID_Cliente INT PRIMARY KEY IDENTITY,
+    Nombre NVARCHAR(100),
+    Edad INT,
+    TipoCliente NVARCHAR(50)
+);
+
+--  tabla de Rutas
+CREATE TABLE Rutas (
+    ID_Ruta INT PRIMARY KEY IDENTITY,
+    NombreRuta NVARCHAR(100),
+    Precio DECIMAL(10, 2)
+);
+
+--  tabla de Ventas
+CREATE TABLE Ventas (
+    ID_Venta INT PRIMARY KEY IDENTITY,
+    ID_Cliente INT,
+    ID_Ruta INT,
+    CantidadPersonas INT,
+    DescuentoCantidad DECIMAL(10, 2),
+    DescuentoTipoCliente DECIMAL(10, 2),
+    MontoTotal DECIMAL(10, 2),
+    FOREIGN KEY (ID_Cliente) REFERENCES Clientes(ID_Cliente),
+    FOREIGN KEY (ID_Ruta) REFERENCES Rutas(ID_Ruta)
+);
